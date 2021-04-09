@@ -17,7 +17,7 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 import Video from "components/Video/Video";
-import './assets/css/style.css';
+import 'assets/css/style.css';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
