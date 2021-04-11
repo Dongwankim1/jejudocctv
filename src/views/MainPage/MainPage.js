@@ -16,7 +16,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
-import Video from "components/Video/Video";
+
 import 'assets/css/style.css';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -37,12 +37,29 @@ function a11yProps(index) {
 export default function MainPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
-  const one = [
+  const [value, setValue] = useState(0);
+  const [urlMap,seturlMap] = useState([
     {
+      id:1,
       name:"제주공항",
       url:"http://123.140.197.51/media/contents/live/33"
     },
     {
+      id:2,
+      name:"용두암 해안",
+      url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/51.stream/playlist.m3u8"
+    },
+ 
+
+  ]);
+  const one = [
+    {
+      id:1,
+      name:"제주공항",
+      url:"http://123.140.197.51/media/contents/live/33"
+    },
+    {
+      id:2,
       name:"용두암 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/51.stream/playlist.m3u8"
     },
@@ -51,18 +68,22 @@ export default function MainPage(props) {
   ]
   const nam = [
     {
+      id:3,
       name:"서귀포 항",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://123.140.197.51/stream/35/play.m3u8"
     },
     {
-      name:"법환포구",
+      id:4,
+      name:"법환 포구",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/54.stream/playlist.m3u8"
     },
     {
+      id:5,
       name:"법환 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/55.stream/playlist.m3u8"
     },
     {
+      id:6,
       name:"중문 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/59.stream/playlist.m3u8"
     },
@@ -71,10 +92,12 @@ export default function MainPage(props) {
 
   const hae = [
     {
+      id:7,
       name:"하얏트 호텔:중문색달해변",
       url:"http://bangjae.jeju.go.kr//tool/cctv/cctv_map.jsp?area=108"
     },
     {
+      id:8,
       name:"라다마 호텔:제주 탑동해변",
       url:"http://bangjae.jeju.go.kr//tool/cctv/cctv_map.jsp?area=100"
     },
@@ -83,10 +106,12 @@ export default function MainPage(props) {
 
   const three = [
     {
+      id:9,
       name:"성산 일출봉",
       url:"http://123.140.197.51/media/contents/live/34"
     },
     {
+      id:10,
       name:"온평 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/56.stream/playlist.m3u8"
     },
@@ -94,10 +119,12 @@ export default function MainPage(props) {
   ]
   const west=[
     {
+      id:11,
       name:"신창 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/63.stream/playlist.m3u8"
     },
     {
+      id:12,
       name:"화순 해안",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://59.8.86.15:1935/live/60.stream/playlist.m3u8"
     },
@@ -105,36 +132,46 @@ export default function MainPage(props) {
 
   const hanra=[
     {
+      id:13,
       name:"백록담",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://119.65.216.155:1935/live/cctv01.stream_360p/playlist.m3u8"
     },
     {
+      id:14,
       name:"왕관릉",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://119.65.216.155:1935/live/cctv02.stream_360p/playlist.m3u8"
     },
     {
+      id:15,
       name:"윗세 오름",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://119.65.216.155:1935/live/cctv03.stream_360p/playlist.m3u8"
     },
     {
+      id:16,
       name:"어승생악",
       url:"chrome-extension://ckblfoghkjhaclegefojbgllenffajdc/player.html#http://119.65.216.155:1935/live/cctv04.stream_360p/playlist.m3u8"
     },
 
 
   ]
-  useEffect(()=>{
-
-  },[urlMap])
+ 
     
   
-  const [value, setValue] = useState(0);
-  const [urlMap,seturlMap] = useState(one);
+
+
+
+  useEffect((e)=>{
+
+
+  },urlMap)
   const handleChange = (event, newValue) => {
 
+
+    
     if(newValue===0){
-      console.log("asdasd")
+      console.log("asdasd");
       seturlMap(one);
+
     }else if(newValue===1){
       seturlMap(nam);
     }else if(newValue===2){
@@ -181,8 +218,19 @@ export default function MainPage(props) {
       </AppBar>
         </div>
         <div className="IframeDiv">
-          <Video urlMap={urlMap}/>
+        
+          {
+           
+        urlMap.map((urlconfig)=>(
+            <div>
+            <h1>{urlconfig.name}</h1>
+            <iframe key={urlconfig.id} src={urlconfig.url} id="iframe__"></iframe>
+            
           
+            </div>
+
+          ))
+        }
         </div>
         <div>
 
