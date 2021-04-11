@@ -17,7 +17,7 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 
-import 'assets/css/style.css';
+
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -217,14 +217,14 @@ export default function MainPage(props) {
         </Tabs>
       </AppBar>
         </div>
-        <div className="IframeDiv">
+        <div className={classNames(classes.IframeDiv)}>
         
           {
            
         urlMap.map((urlconfig)=>(
             <div>
             <h1>{urlconfig.name}</h1>
-            <iframe key={urlconfig.id} src={urlconfig.url} id="iframe__"></iframe>
+            <iframe className={classNames(classes.iframe__)} key={urlconfig.id} src={urlconfig.url} id="iframe__"></iframe>
             
           
             </div>

@@ -56,7 +56,21 @@ const profilePageStyle = {
   navWrapper: {
     margin: "10px",
     textAlign: "center"
+  },
+  IframeDiv: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    width :"100%",
+    height:"100%",
+  },
+  iframe__:{
+    width:"800px",
+    height: "600px"
   }
+ 
+
 };
 
 export default profilePageStyle;
