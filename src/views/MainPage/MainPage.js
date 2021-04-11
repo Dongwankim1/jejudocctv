@@ -223,7 +223,7 @@ export default function MainPage(props) {
         urlMap.map((urlconfig)=>(
             <div>
             <h1>{urlconfig.name}</h1>
-            <iframe className={classNames(classes.iframe__)} key={urlconfig.id} src={urlconfig.url} id="iframe__"></iframe>
+            <iframe title={urlconfig.name} className={classNames(classes.iframe__)} key={urlconfig.id} src={urlconfig.url} id="iframe__"></iframe>
             
           
             </div>
