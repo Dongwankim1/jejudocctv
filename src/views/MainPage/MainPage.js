@@ -224,7 +224,7 @@ export default function MainPage(props) {
             <div>
             <h1>{urlconfig.name}</h1>
             <iframe title={urlconfig.name} className={classNames(classes.iframe__)} key={urlconfig.id} src={urlconfig.url} id="iframe__">
-            <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+      
             </iframe>
             
           
