@@ -163,13 +163,12 @@ export default function MainPage(props) {
   useEffect((e)=>{
 
 
-  },urlMap)
+  },[urlMap])
   const handleChange = (event, newValue) => {
 
 
     
     if(newValue===0){
-      console.log("asdasd");
       seturlMap(one);
 
     }else if(newValue===1){
